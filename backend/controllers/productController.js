@@ -5,12 +5,12 @@ const cloudinary = require("cloudinary").v2;
 cloudinary.config({ 
   cloud_name: 'dylk6ntbi', 
   api_key: '425433459721671', 
-  api_secret: process.env.REACT_APP_API_SECRET 
+  api_secret: process.env.API_SECRET 
 });
 // Create Prouct
 const createProduct = asyncHandler(async (req, res) => {
   const { name, sku, category, quantity, price, description } = req.body;
-
+ 
   //   Validation
   if (!name || !category || !quantity || !price || !description) {
     res.status(400);
@@ -28,6 +28,7 @@ const createProduct = asyncHandler(async (req, res) => {
         resource_type: "image",
       });
     } catch (error) {
+      console.log({error})
       res.status(500);
       throw new Error("Image could not be uploaded");
     }
