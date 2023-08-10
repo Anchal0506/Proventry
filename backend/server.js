@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://Proventry-app.vercel.app"],
+    origin: ["http://localhost:3000", "https://proventry.onrender.com/"],
     credentials: true,
   })
 );
